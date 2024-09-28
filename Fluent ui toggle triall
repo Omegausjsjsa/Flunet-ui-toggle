@@ -109,6 +109,9 @@ local InterfaceManager = {} do
 		end)
 		Library.MinimizeKeybind = MenuKeybind
 
+        -- Create a reference to the entire UI frame (replace 'YourMainFrameName' with the actual frame name)
+        local mainFrame = tab.Parent -- Assuming 'tab' is a child of the main frame
+        
         -- Toggle UI Button Implementation
         local toggleUIButton = Instance.new("TextButton")
         toggleUIButton.Size = UDim2.new(0.15, 0, 0.1, 0) -- Adjust size as needed
@@ -118,10 +121,9 @@ local InterfaceManager = {} do
         toggleUIButton.TextScaled = true
         toggleUIButton.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("ScreenGui") -- Adjust this path as needed
 
-        -- Function to toggle UI visibility
-        local frame = tab.Frame -- Reference to your main UI frame
+        -- Function to toggle the entire UI visibility
         toggleUIButton.MouseButton1Click:Connect(function()
-            frame.Visible = not frame.Visible
+            mainFrame.Visible = not mainFrame.Visible
         end)
     end
 end
